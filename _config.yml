@@ -26,10 +26,10 @@ title: Kieran Robson                          # the main title
 tagline: Docs for Kieran Robson   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+  Kieran's guides and documentation
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ''
+url: 'https://docs.kieranrobson.com/'
 
 github:
   username: KieranRobson             # change to your github username
