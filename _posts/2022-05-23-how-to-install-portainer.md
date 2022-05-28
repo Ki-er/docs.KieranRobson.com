@@ -42,7 +42,7 @@ username: admin
 password: admin
 ```
 
-To change your password
+## Change your password
 * Head to my account in the top right hand corner
-* Enter the current password `admin`
+* Enter the current password: `admin`
 * Enter a new password
