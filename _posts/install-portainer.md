@@ -1,7 +1,7 @@
 ---
 title: "How to install Portainer"
 date: 2022-05-23 20:00 +0000
-categories: homelab, docker
+categories: portainer
 tags: portainer, docker
 ---
 
