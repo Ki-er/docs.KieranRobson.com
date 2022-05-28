@@ -6,7 +6,9 @@ tags: [servers,dell,hp,supermicro]
 ---
 
 # How to install Portainer
+
 ## What is Portainer?
+
 Portainer is a GUI that can be hosted within a docker container that allows you to manage other docker containers with features such as 
 * Starting and stopping sontainers.
 * Creating Docker containers
@@ -15,11 +17,14 @@ Portainer is a GUI that can be hosted within a docker container that allows you 
 With both light and dark mode themes, Portainer is a great way to manage your containers. So heres how to install it.
 
 ## How to install Portainer on Ubuntu
+
 ### Prerequisites
+
 * Docker 
 * Docker Compose
 
 ### Commands
+
 ```bash
 docker volume create portainer_data
 ```
