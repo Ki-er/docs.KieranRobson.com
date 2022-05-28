@@ -35,3 +35,14 @@ Installs Portainer into its own docker container and allows port 9000.
 docker run -it --name portainer-database-rollback -v portainer_data:/data portainer/portainer-ee:latest --rollback-to-ce
 ```
 Reverts back to the community edition of Portainer so that it can run correctly.
+
+Once the image has been created head to `yourip:9000` and login with
+```
+username: admin
+password: admin
+```
+
+To change your password
+* Head to my account in the top right hand corner
+* Enter the current password `admin`
+* Enter a new password
