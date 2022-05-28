@@ -2,8 +2,8 @@
 layout: post
 title: "How to install Docker and Docker Compose"
 date: 2022-05-28 23:17:00
-categories: portainer
-tags: portainer, docker
+categories: docker
+tags: docker docker-compose
 ---
 
 # How to install Docker and Docker Compose
