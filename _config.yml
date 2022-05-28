@@ -16,7 +16,7 @@ lang: en
 prefer_datetime_locale:
 
 # Change to your timezone â€º http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone:
+timezone: Europe/London
 
 # jekyll-seo-tag settings â€º https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # â†“ --------------------------
