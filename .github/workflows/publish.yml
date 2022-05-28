@@ -9,11 +9,6 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - 
-        name: setup Jeckyll
-        uses: helaili/jekyll-action@2.0.5    # Choose any one of the Jekyll Actions
-        with:                                # Some relative inputs of your action
-          token: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
