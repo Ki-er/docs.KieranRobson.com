@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "How to install Portainer"
-date: 2022-05-23 20:00:00 -500
-categories: portainer
-tags: portainer, docker
+title: Hello HomeLab
+date: 2022-05-21 12:00:00 -500
+categories: [homelab, hardware]
+tags: [servers,dell,hp,supermicro]
 ---
 
 # How to install Portainer
