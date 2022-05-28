@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to install Docker and Docker Compose"
-date: 2022-05-29 00:00:00 +0000
+date: 2022-05-28 23:57:00 +0000
 categories: portainer
 tags: portainer, docker
 ---
