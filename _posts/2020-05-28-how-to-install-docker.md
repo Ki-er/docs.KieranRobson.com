@@ -8,9 +8,10 @@ tags: docker docker-compose
 
 # How to install Docker and Docker Compose
 ## What is Docker
+[Docker](https://docs.docker.com/get-started/overview/) is a set of platform as a service [(PAAS)](https://azure.microsoft.com/en-gb/overview/what-is-paas/) products that use OS-level virtualization to deliver software in packages called containers. 
 
 ## Dependencies
-Update the system
+Update the syste]m
 ```bash
 sudo apt update
 ```
