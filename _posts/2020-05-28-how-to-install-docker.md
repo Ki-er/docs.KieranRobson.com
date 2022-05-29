@@ -11,8 +11,7 @@ tags: docker docker-compose
 [Docker](https://docs.docker.com/get-started/overview/) is a set of platform as a service [(PAAS)](https://azure.microsoft.com/en-gb/overview/what-is-paas/) products that use OS-level virtualization to deliver software in packages called containers. 
 
 ## Dependencies
-Update the syste]m
-```bash
+Update the system
 sudo apt update
 ```
 
