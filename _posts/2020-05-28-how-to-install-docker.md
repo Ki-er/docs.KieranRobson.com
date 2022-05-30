@@ -77,11 +77,11 @@ services:
       - ./letsencrypt:/etc/letsencrypt
 ```
 To run the docker-compose.yml file and make it into a container, the follwing command can be run:
-```
+```bash
 docker-compose up -d 
 ```
 The `--force-create flag can be added to remake the container
-```
+```bash
 docker-compose up -d --force-create
 ```
 
