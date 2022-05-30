@@ -2,8 +2,8 @@
 layout: post
 title: "How to install NGINX proxy manager and Cloudlfare"
 date: 2022-05-30 19:56:00 +0000
-categories: portainer
-tags: portainer docker
+categories: selfhosting
+tags: nginx-proxy-manager cloudlfare domains
 ---
 # How to install NGINX proxy manager and Cloudlfare
 ## What is NGINX Proxy Manager
