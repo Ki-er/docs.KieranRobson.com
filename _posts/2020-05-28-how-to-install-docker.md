@@ -11,8 +11,7 @@ tags: docker docker-compose
 [Docker](https://docs.docker.com/get-started/overview/) is a set of platform as a service [(PAAS)](https://azure.microsoft.com/en-gb/overview/what-is-paas/) products that use OS-level virtualization to deliver software in packages called containers. 
 
 ## Dependencies
-Update the syste]m
-```bash
+Update the system
 sudo apt update
 ```
 
@@ -78,11 +77,11 @@ services:
       - ./letsencrypt:/etc/letsencrypt
 ```
 To run the docker-compose.yml file and make it into a container, the follwing command can be run:
-```
+```bash
 docker-compose up -d 
 ```
 The `--force-create flag can be added to remake the container
-```
+```bash
 docker-compose up -d --force-create
 ```
 
