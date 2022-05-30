@@ -7,7 +7,9 @@ tags: portainer docker
 ---
 # How to install NGINX proxy manager and Cloudlfare
 ## What is NGINX Proxy Manager
+NGINX proxy manager is what it says on the tin, its a proxy manager allowing you to point a domain to an IP and port on your server so that the user can see the service without needing the IP and port.
 ## What is Cloudflare 
+Cloudflare is a content delivery network (CDN). This will not only improve latency to your website, it will also hide the IP that visitors see when they are connected to your self hosted services.
 
 
 # Setup
