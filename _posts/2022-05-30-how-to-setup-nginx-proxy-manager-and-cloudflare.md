@@ -90,6 +90,7 @@ TTL: Auto
 * Click the green proxy buttom
 * Click add proxy host at the top right of the wite box
 * Enter the following details
+
 ```
 Domain Names: The subdomain.domain.com i.e docs.kieranrobson.com
 Scheme: http or https (This will more than often use http unless youre using port 80 or 443)
