@@ -11,8 +11,9 @@ tags: docker docker-compose
 [Docker](https://docs.docker.com/get-started/overview/) is a set of platform as a service [(PAAS)](https://azure.microsoft.com/en-gb/overview/what-is-paas/) products that use OS-level virtualization to deliver software in packages called containers. 
 
 ## Dependencies
+
 Update the system
-```
+```bash
 sudo apt update
 ```
 
@@ -26,6 +27,7 @@ To check whether docker has installed correctly, run the following command
 ```bash
 sudo docker -v
 ```
+
 ```
 `Docker version 20.10.12, build 20.10.12-0ubuntu2~20.04.1
 ```
