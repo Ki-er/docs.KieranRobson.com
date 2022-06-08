@@ -12,9 +12,9 @@ tags: docker docker-compose
 
 ## Dependencies
 Update the system
+```
 sudo apt update
 ```
-
 ## Docker Install
 Install docker
 ```bash
