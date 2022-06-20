@@ -1,0 +1,60 @@
+I"z<h1 id="how-to-install-and-setup-uptime-kuma">How to install and setup Uptime Kuma</h1>
+<h2 id="what-is-uptime-kuma">What is Uptime Kuma</h2>
+<p>It is a self-hosted monitoring tool like “Uptime Robot” with support for notifciations, status pages and many types of monitors.</p>
+
+<h2 id="intall-uptime-kuma">Intall Uptime Kuma</h2>
+<p>Install Docker</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td> --><td class="rouge-code"><pre><span class="nb">sudo </span>apt <span class="nb">install </span>docker.io
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Run the following Docker command</p>
+<div class="language-docker highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td> --><td class="rouge-code"><pre>docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Head to <code class="language-plaintext highlighter-rouge">yourip:30001</code> and enter your new account details.</p>
+
+<h2 id="add-your-first-monitor">Add your first monitor</h2>
+<h3 id="https">HTTPS</h3>
+<p>To create a HTTPS monitor, fill in the details below with the website you’d like to monitor</p>
+
+<p><img src="https://i.imgur.com/17t6Z1m.png" alt="image" /></p>
+
+<p>then press accept at the bottom.</p>
+
+<h3 id="ping">Ping</h3>
+<p>Like the HTTPS above, you need to fill in the details however I recommend placing your applications into docker containers so that you can assign a port easily then use this for monitoring.</p>
+
+<p><img src="https://i.imgur.com/WucP36H.png" alt="image" /></p>
+
+<p>I have no had any expirience with the other types of monitoring however when I do, I will write them up here.</p>
+
+<h2 id="status-page">Status Page</h2>
+<p>Press the status page button and add your name of the status page. This will create a page which outlines all details</p>
+
+<p>This can be found at <code class="language-plaintext highlighter-rouge">yourip:3001/status/name</code>.</p>
+
+<p>Get started by adding a group and then adding some monitors to that group.</p>
+
+<p><img src="https://i.imgur.com/HBYi9Iy.png" alt="image" /></p>
+
+<h2 id="notifications">Notifications</h2>
+<p>When configuring a monitor, you can create a notification.</p>
+
+<p>There are many types of notifications however for this guide, we will use Discord.</p>
+
+<p><img src="https://i.imgur.com/fiSi7tS.png" alt="image" /></p>
+
+<p>To get a Discord Webhook:</p>
+<ul>
+  <li>right click on a channel</li>
+  <li>Press edit channel</li>
+  <li>Press Integrations</li>
+  <li>Create a webhook</li>
+  <li>Copy webhook URL</li>
+  <li>Paste webhook URL into <code class="language-plaintext highlighter-rouge">Discord Webhook URL</code> on Uptime Kuma</li>
+</ul>
+
+<p>I would recommend turning on <code class="language-plaintext highlighter-rouge">Apply on all existing monitors</code> so you don’t need to configure every monitor individually.</p>
+:ET

@@ -1,0 +1,6 @@
+I"‰<h1 id="how-to-install-nginx-proxy-manager-and-cloudlfare">How to install NGINX proxy manager and Cloudlfare</h1>
+<h2 id="what-is-nginx-proxy-manager">What is NGINX Proxy Manager</h2>
+<p>NGINX proxy manager is what it says on the tin, its a proxy manager allowing you to point a domain to an IP and port on your server so that the user can see the service without needing the IP and port.</p>
+<h2 id="what-is-cloudflare">What is Cloudflare</h2>
+<p>Cloudflare is a content delivery network (CDN). This will not only improve latency to your website, it will also hide the IP that visitors see when they are connected to your self hosted services.</p>
+:ET

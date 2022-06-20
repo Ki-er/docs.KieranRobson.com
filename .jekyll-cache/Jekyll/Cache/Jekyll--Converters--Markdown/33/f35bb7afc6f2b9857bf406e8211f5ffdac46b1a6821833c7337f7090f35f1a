@@ -1,0 +1,145 @@
+I"ï<h1 id="how-to-install-nginx-proxy-manager-and-cloudlfare">How to install NGINX proxy manager and Cloudlfare</h1>
+<h2 id="what-is-nginx-proxy-manager">What is NGINX Proxy Manager</h2>
+<p>NGINX proxy manager is what it says on the tin, its a proxy manager allowing you to point a domain to an IP and port on your server so that the user can see the service without needing the IP and port.</p>
+<h2 id="what-is-cloudflare">What is Cloudflare</h2>
+<p>Cloudflare is a content delivery network (CDN). This will not only improve latency to your website, it will also hide the IP that visitors see when they are connected to your self hosted services.</p>
+
+<h1 id="setup">Setup</h1>
+<h2 id="nginx-proxy-manager-setup">NGINX Proxy Manager Setup</h2>
+<h3 id="install-dependancies">Install Dependancies</h3>
+<p>Firstly, we will install docker-compose as this is what NPM will use to host itself in a docker container. You can do this by typing the commands below.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>apt <span class="nb">install </span>docker-compose
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Check the version has been installed correctly by doing</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>docker-compose <span class="nt">-v</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="creating-the-nginx-docker-compose-file">Creating the NGINX docker-compose file</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nb">mkdir </span>NGINX-Proxy-Manager
+<span class="nb">cd </span>NGINX-Proxy-Manager
+<span class="nb">touch </span>docker-compose.yml
+nano docker-compose.yml
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Copy the following yml code into your newly created docker compose file</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3'</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">app</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s1">'</span><span class="s">jc21/nginx-proxy-manager:latest'</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">80:80'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">81:81'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">443:443'</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./data:/data</span>
+      <span class="pi">-</span> <span class="s">./letsencrypt:/etc/letsencrypt</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>The run</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>docker-compose up <span class="nt">-d</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Head to <code class="language-plaintext highlighter-rouge">yourip:81</code> and then login with the default</p>
+<ul>
+  <li>username: admin</li>
+  <li>password: changeme</li>
+</ul>
+
+<p>You will be prompted to change the login details.</p>
+
+<h2 id="cloudflare-setup">Cloudflare Setup</h2>
+
+<ul>
+  <li>Head to <code class="language-plaintext highlighter-rouge">https://dash.cloudflare.com/</code> and make an account</li>
+  <li>You will be prompted to change the name servers of your domain provider, each provider is differnt on how to do this but cloudflare provides guides for common ones.</li>
+</ul>
+
+<blockquote class="prompt-tip">
+  <p>This may take a while for the name servers to propergate.</p>
+</blockquote>
+
+<p>Once the names have propergated, head to the <code class="language-plaintext highlighter-rouge">dns</code> tab</p>
+
+<p>Add an A Name record and fill in the details below</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>Type: A
+Name: Your domain i.e kieranrobson.com
+Target: Your IP i.e 11.11.111.111
+Proxied: On
+TTL: Auto
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Add a second A record so that you can setup subdomains such as docs.kieranrobson.com</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>Type: A
+Name: The name of the subdomain you'd like i.e docs
+Target: Your IP i.e 11.11.111.111 
+Proxied: Off
+TTL: Auto
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="nginx-proxy-host-setup">NGINX Proxy Host Setup</h3>
+<ul>
+  <li>Click the green proxy buttom</li>
+  <li>Click add proxy host at the top right of the wite box</li>
+  <li>Enter the following details</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>Domain Names: The subdomain.domain.com i.e docs.kieranrobson.com
+Scheme: http or https (This will more than often use http unless youre using port 80 or 443)
+Forward Hostname: Your IP i.e 11.11.1111.111
+Forward Port: The Port in which the service is running on externally i.e 9000 is portainers default external port
+
+Turn on Block Common Exploits
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Head to the <code class="language-plaintext highlighter-rouge">SSL</code> tab</p>
+<ul>
+  <li>Select a new SSL certifcate</li>
+  <li>Force SSL</li>
+  <li>HTTP/2  Support (Optional)</li>
+  <li>Agree to the terms and conditions</li>
+</ul>
+
+<blockquote class="prompt-tip">
+  <p>If you recieve an error, double check proxied is turned off in the cloudflare dashboard.</p>
+</blockquote>
+
+<p>Once the proxy shows <code class="language-plaintext highlighter-rouge">Lets Encrypt</code> under the SSL heading, head back to cloudflare and turn on the proxied options.</p>
+
+<p>Finally head to your subdomain and it should have worked!</p>
+
+<p>If this doesnt work and youre getting an error, feel free to hit me up on discord Kieran#0981 and we will get it working!</p>
+:ET

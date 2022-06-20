@@ -1,0 +1,11 @@
+I"-<h1 id="how-to-install-portainer">How to install Portainer</h1>
+<h2 id="what-is-portainer">What is Portainer?</h2>
+<p>Portainer is a GUI that can be hosted within a docker container that allows you to manage other docker containers with features such as</p>
+<ul>
+  <li>Starting and stopping sontainers.</li>
+  <li>Creating Docker containers</li>
+  <li>One click installs of popular containers</li>
+  <li>Docker-compose creation
+With both light and dark mode themes, Portainer is a great way to manage your containers. So heres how to install it.</li>
+</ul>
+:ET
