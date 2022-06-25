@@ -9,13 +9,19 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-
+      - uses: actions/checkout@v2
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
           bundler-cache: true
-        
+          
+      - name: Build and test with Rake
+        run: |
+          gem install bundler
+          JEKYLL_ENV=production bundle exec jekyll b
+
+
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
