@@ -17,10 +17,11 @@ jobs:
           bundler-cache: true
           
       - 
-        name: Jekyll
-        uses:  helaili/jekyll-action@v2
+        name: 'Pages Jekyll'
+        uses: actions/jekyll-build-pages@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          source: ./
+          destination: ./_site
           
       -
         name: Set up QEMU
