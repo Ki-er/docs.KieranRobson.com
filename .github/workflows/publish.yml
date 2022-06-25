@@ -16,12 +16,12 @@ jobs:
           ruby-version: 2.7
           bundler-cache: true
           
-      - name: Build and test with Rake
-        run: |
-          gem install bundler
-          JEKYLL_ENV=production bundle exec jekyll b
-
-
+      - 
+        name: Jekyll
+        uses:  helaili/jekyll-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
