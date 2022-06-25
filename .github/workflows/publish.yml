@@ -16,13 +16,17 @@ jobs:
           ruby-version: 2.7
           bundler-cache: true
         
-      - 
-        name: Run commands
-        run: |
-        bundle install
-        JEKYLL_ENV=production bundle exec jekyll b
-      
-      
+      - name: Get cached gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Build and deploy
+        uses: helaili/jekyll-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
