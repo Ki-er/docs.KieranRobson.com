@@ -17,7 +17,7 @@ jobs:
           bundler-cache: true
           
       - 
-        name: 'Pages Jekyll'
+        name: Pages Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
