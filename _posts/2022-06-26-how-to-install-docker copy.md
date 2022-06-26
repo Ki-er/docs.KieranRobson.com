@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to install Docker and Docker Compose"
-date: 2022-06-26 23:17:00
+date: 2022-06-26 08:13:00
 categories: docker
 tags: docker docker-compose
 ---
