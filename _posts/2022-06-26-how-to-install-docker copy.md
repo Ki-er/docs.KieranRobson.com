@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Test"
-date: 2022-06-25 22:27:00 +0000
-categories: test
-tags: test
+title: "How to install Docker and Docker Compose"
+date: 2022-06-26 23:17:00
+categories: docker
+tags: docker docker-compose
 ---
 
 # How to install Docker and Docker Compose
