@@ -17,11 +17,9 @@ jobs:
           bundler-cache: true
           
       - 
-        name: Pages Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
+          name: commands
+          run: |
+            - JEKYLL_ENV=production bundle exec jekyll b
           
       -
         name: Set up QEMU
